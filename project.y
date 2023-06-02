@@ -14,6 +14,10 @@ nodeType *idS(int i);
 void freeNode(nodeType *p);
 void createPlot();
 void yyerror(char *s);
+int calculateCMMDC();
+int calculateCMMMC();
+int ex(nodeType* p);
+
 
 int sym[26];
 char* strings[26];
@@ -43,7 +47,7 @@ int d;
 %token <iValue> INTEGER
 %token <sIndex> VARIABLE
 %token <string> STRING
-%token WHILE IF DISPLAY FOR TO IS STEP DO CASE SWITCH DEFAULT SAVE PLOT CMMMC CMMDC SHOW
+%token WHILE IF DISPLAY FOR TO IS STEP DO SAVE PLOT CMMMC CMMDC SHOW
 %nonassoc IFX
 %nonassoc ELSE
 
@@ -52,7 +56,7 @@ int d;
 %left '*' '/' '%'
 %nonassoc UMINUS
 
-%type <nPtr> statement expr stmt_list case_list case
+%type <nPtr> statement expr stmt_list
 
 %start      program
 
@@ -82,8 +86,6 @@ statement :  ';'                   { $$ = opr(';', 2, NULL, NULL); }
                 { $$ = opr(IF, 2, $3, $5); }
           | IF '(' expr ')' statement ELSE statement
                 { $$ = opr(IF, 3, $3, $5, $7); }
-          | SWITCH '(' expr ')' '{' case_list '}'
-                { $$ = opr(SWITCH, 2, $3, $6); }
           | '{' stmt_list '}' { $$ = $2; }
           | PLOT ';'
                 { $$ = opr(PLOT, 0); }
@@ -91,15 +93,6 @@ statement :  ';'                   { $$ = opr(';', 2, NULL, NULL); }
                 { $$ = opr(SAVE, 1, $2); }
           ;
 
-case  :     CASE expr ':' statement
-              { $$ = opr(CASE, 2, $2, $4); }
-          | DEFAULT ':' statement
-              { $$ = opr(DEFAULT, 1, $3); }
-          ;
-
-case_list : case
-          | case_list case  { $$ = opr(';', 2, $1, $2); }
-          ;
 
 stmt_list : statement
           | stmt_list statement   { $$ = opr(';', 2, $1, $2); }
