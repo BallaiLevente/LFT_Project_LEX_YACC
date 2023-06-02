@@ -1,0 +1,16 @@
+j=1;
+
+for i=1 to 10 step 1: {
+  if ((i-(7*(i/5)))==0) {
+    d = cmmmc i j;
+    j=j-2;
+    save d;
+  }
+  else {
+    c = cmmdc i j;
+    j=j+2;
+    save c;
+  };
+  }
+plot;
+  .

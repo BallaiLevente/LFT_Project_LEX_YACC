@@ -1,0 +1,21 @@
+a=16;
+b=76;
+
+if(a>b){
+    m=a;
+    i=b;
+}
+else{
+    m=b;
+    i=a;
+};
+
+for  j = 1 to m step 1 : {
+    if (m % j  == 0){
+        if(i % j == 0){
+            l=j;
+        }
+    }
+}
+display l;
+.

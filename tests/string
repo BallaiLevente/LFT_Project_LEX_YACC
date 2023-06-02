@@ -1,0 +1,12 @@
+A is "HELLO";
+B is "HELLO WORLD";
+
+for i=1 to 10 step 1 : {
+  if ((i-(3*(i/3)))==0) {
+    show A;
+  }
+  else  {
+    show B;
+  };
+}
+.

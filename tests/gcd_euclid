@@ -1,0 +1,13 @@
+a=16;
+b=76;
+
+  while(a != b) {
+    if(a > b){
+      a = a - b;
+    }
+    else{
+      b = b-a;
+    };
+  }
+display a;
+.

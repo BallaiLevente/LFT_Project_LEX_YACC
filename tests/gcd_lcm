@@ -1,0 +1,16 @@
+a=24;
+b=60;
+c=24;
+d=60;
+  while(a != b) {
+    if(a > b){
+      a = a - b;
+    }
+    else{
+      b = b-a;
+    };
+  }
+
+g = c*d/a;
+display g;
+.

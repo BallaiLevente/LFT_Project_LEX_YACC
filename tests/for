@@ -1,0 +1,16 @@
+j=0;
+for i=1 to 10 step 1 : {
+  if ((i-(2*(i/2)))==0) {
+    j=j+10;
+    display j;
+  }
+  else  if ((i-(3*(i/3)))==0) {
+      j=j+20;
+      display j;
+  }
+  else {
+    display j;
+  };
+}
+.
+  
