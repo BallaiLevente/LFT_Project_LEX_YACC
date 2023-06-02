@@ -1,0 +1,12 @@
+sudo apt install gnuplot
+
+In VS Code:
+Extensions -> Gnuplot (from mammothb) + Gnuplot (from Mario Schwalbe)
+
+What to do if you encounter a similar message after runnig a plot test:
+
+qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in ""
+/usr/lib/gnuplot/gnuplot_qt: symbol lookup error: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined symbol: __libc_pthread_init, version GLIBC_PRIVATE
+
+Try the following command in VS Code:
+unset GTK_PATH
